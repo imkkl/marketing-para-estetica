@@ -1,26 +1,26 @@
-# Marketing para Estética
+# Marketing para Estética — versão 2
 
-Site institucional de uma consultoria de marketing e aquisição especializada em clínicas de estética.
+Site institucional one-page com direção visual off-white, areia e oliva.
 
-## Publicar gratuitamente no GitHub Pages
+## Arquivos
+- `index.html`: conteúdo e estrutura
+- `styles.css`: identidade visual e responsividade
+- `script.js`: carrossel, menu e formulário de WhatsApp
 
-1. Crie um repositório no GitHub chamado `marketing-para-estetica`.
-2. Envie os arquivos `index.html`, `styles.css` e `script.js` para a raiz do repositório.
-3. No GitHub, abra **Settings → Pages**.
-4. Em **Build and deployment**, selecione **Deploy from a branch**.
-5. Selecione a branch `main` e a pasta `/ (root)`. Clique em **Save**.
-6. Aguarde alguns minutos. O GitHub mostrará o endereço público do site na mesma tela.
+## Atualizar no GitHub
+1. Abra o repositório `marketing-para-estetica`.
+2. Clique em **Add file → Upload files**.
+3. Envie os três arquivos do site (`index.html`, `styles.css`, `script.js`) e este README.
+4. O GitHub informará que os arquivos já existem. Confirme a substituição dos arquivos.
+5. Clique em **Commit changes**. O GitHub Pages fará uma nova publicação automaticamente.
 
-## Configurar WhatsApp
+## WhatsApp
+Antes de divulgar, abra `script.js` e preencha `WHATSAPP_NUMBER` com o número comercial no formato internacional, somente dígitos. Exemplo: `5541999999999`.
 
-Antes de divulgar o site, abra `script.js` e substitua o valor vazio de `WHATSAPP_NUMBER` pelo número comercial com código do país e DDD, somente números. Exemplo de formato: `5541999999999`.
-
-O formulário não armazena dados em servidor. Ele prepara uma mensagem e abre o WhatsApp do visitante.
-
-## Personalização
-
-- Cores e layout: `styles.css`
-- Textos e estrutura: `index.html`
-- Menu e formulário: `script.js`
-
-O site usa Google Fonts para carregar Manrope, DM Sans. Se as fontes externas não carregarem, serão usadas fontes de reserva.
+## Observações importantes
+- O carrossel tem três banners alternados.
+- As peças de portfólio são estudos conceituais, não cases de clientes.
+- A seção de clientes é demonstrativa.
+- Os depoimentos são textos ilustrativos e devem ser substituídos por depoimentos reais autorizados.
+- A seção de resultados apresenta indicadores que podem ser acompanhados, sem atribuir números fictícios a clientes.
+- O formulário abre o WhatsApp e não armazena dados em servidor.
