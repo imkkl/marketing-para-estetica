@@ -1,21 +1,33 @@
-# Marketing para Estética — versão 3
+# Marketing para Estética — versão 7
 
-Atualização visual: interface tecnológica, tipografia Inter, paleta azul-ciano e superfícies glassmorphism.
+Site institucional one-page para consultoria de marketing especializada em clínicas de estética.
+
+## Direção visual
+- Layout simples na ordem aprovada: menu, três banners, serviços, resultados, clientes, depoimentos, contato e rodapé.
+- Paleta quente: creme, off-white, areia, taupe e café.
+- Menu com glassmorphism sutil e transparência.
+- Botões com degradê azul discreto, cantos arredondados e sombras suaves.
+- Cartões e campos com cantos arredondados, mantendo aparência editorial e sofisticada.
+- Responsivo para desktop e celular.
 
 ## Arquivos
-- `index.html`: conteúdo, estrutura e metadados SEO
-- `styles.css`: identidade visual, efeitos, responsividade e acessibilidade
-- `script.js`: carrossel, menu e formulário WhatsApp
+- `index.html`: conteúdo e estrutura
+- `styles.css`: identidade visual e responsividade
+- `script.js`: carrossel, menu e formulário de WhatsApp
 
-## Atualização no GitHub
+## Publicação no GitHub Pages
 1. Abra o repositório `marketing-para-estetica`.
 2. Clique em **Add file → Upload files**.
-3. Envie os quatro arquivos desta pasta, substituindo os anteriores.
-4. Clique em **Commit changes**.
-5. Aguarde o GitHub Pages concluir a publicação.
+3. Envie `index.html`, `styles.css`, `script.js` e `README.md` diretamente para a raiz.
+4. Confirme a substituição dos arquivos existentes e clique em **Commit changes**.
+5. Aguarde a publicação do GitHub Pages.
 
-## Configuração necessária
-Abra `script.js` e preencha `WHATSAPP_NUMBER` com o número comercial no formato internacional, somente dígitos (ex.: `5541999999999`).
+## WhatsApp
+Antes de divulgar, abra `script.js` e preencha `WHATSAPP_NUMBER` com o número comercial no formato internacional, somente dígitos. Exemplo: `5541999999999`.
 
 ## Conteúdo demonstrativo
-As peças de portfólio, nomes de clientes e depoimentos são demonstrativos e devem ser substituídos por conteúdo real autorizado antes da divulgação.
+- A seção de clientes contém espaços reservados para logos autorizados.
+- Os depoimentos são textos demonstrativos e devem ser substituídos por depoimentos reais autorizados.
+- Não há números de resultados atribuídos a clientes. Os indicadores são apresentados como métricas a acompanhar.
+- As fotografias são carregadas do Unsplash e podem ser substituídas por imagens próprias licenciadas.
+- O formulário abre o WhatsApp e não armazena dados em servidor.

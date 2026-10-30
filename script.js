@@ -1,55 +1,53 @@
-// Configure o WhatsApp comercial antes de divulgar o site.
-// Use código do país + DDD + número, somente dígitos. Ex.: 5541999999999
+// Antes de divulgar, informe o WhatsApp comercial com código do país + DDD + número.
+// Exemplo: const WHATSAPP_NUMBER = "5541999999999";
 const WHATSAPP_NUMBER = "";
 
 document.getElementById("year").textContent = new Date().getFullYear();
 
-const slides = [...document.querySelectorAll(".slide")];
-const dots = [...document.querySelectorAll(".slide-dots button")];
-const count = document.querySelector(".slide-count");
-let current = 0;
-let carouselTimer;
-
+const slides = [...document.querySelectorAll(".hero-slide")];
+const dots = [...document.querySelectorAll(".dots button")];
+const slideNumber = document.querySelector(".slide-number");
+let activeSlide = 0;
+let timer;
 function showSlide(index) {
-  current = (index + slides.length) % slides.length;
-  slides.forEach((slide, i) => slide.classList.toggle("active", i === current));
-  dots.forEach((dot, i) => dot.classList.toggle("active", i === current));
-  count.innerHTML = `0${current + 1} <i>/</i> 03`;
+  activeSlide = (index + slides.length) % slides.length;
+  slides.forEach((slide, i) => slide.classList.toggle("is-active", i === activeSlide));
+  dots.forEach((dot, i) => dot.classList.toggle("is-active", i === activeSlide));
+  slideNumber.innerHTML = `0${activeSlide + 1} <i>/</i> 03`;
 }
-function startCarousel() {
-  clearInterval(carouselTimer);
-  carouselTimer = setInterval(() => showSlide(current + 1), 6500);
+function restartTimer() {
+  clearInterval(timer);
+  timer = setInterval(() => showSlide(activeSlide + 1), 6500);
 }
-document.querySelector(".next").addEventListener("click", () => { showSlide(current + 1); startCarousel(); });
-document.querySelector(".prev").addEventListener("click", () => { showSlide(current - 1); startCarousel(); });
-dots.forEach((dot, i) => dot.addEventListener("click", () => { showSlide(i); startCarousel(); }));
-startCarousel();
+document.querySelector(".hero-next").addEventListener("click", () => { showSlide(activeSlide + 1); restartTimer(); });
+document.querySelector(".hero-prev").addEventListener("click", () => { showSlide(activeSlide - 1); restartTimer(); });
+dots.forEach((dot, index) => dot.addEventListener("click", () => { showSlide(index); restartTimer(); }));
+restartTimer();
 
-const toggle = document.querySelector(".menu-toggle");
+const menuButton = document.querySelector(".menu-toggle");
 const nav = document.querySelector(".nav");
-toggle.addEventListener("click", () => {
-  const open = nav.classList.toggle("open");
-  toggle.setAttribute("aria-expanded", String(open));
+menuButton.addEventListener("click", () => {
+  const isOpen = nav.classList.toggle("is-open");
+  menuButton.setAttribute("aria-expanded", String(isOpen));
 });
-nav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
-  nav.classList.remove("open");
-  toggle.setAttribute("aria-expanded", "false");
+nav.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
+  nav.classList.remove("is-open");
+  menuButton.setAttribute("aria-expanded", "false");
 }));
 
 document.getElementById("lead-form").addEventListener("submit", event => {
   event.preventDefault();
-  if (!WHATSAPP_NUMBER) {
-    alert("O site está publicado, mas o WhatsApp ainda precisa ser configurado. Abra script.js e preencha WHATSAPP_NUMBER.");
+  if (!/^\d{10,15}$/.test(WHATSAPP_NUMBER)) {
+    alert("Antes de receber contatos, configure o número comercial em script.js na variável WHATSAPP_NUMBER. Use apenas números, com código do país e DDD.");
     return;
   }
-  const data = new FormData(event.currentTarget);
+  const form = new FormData(event.currentTarget);
   const message = [
     "Olá! Gostaria de conversar sobre marketing para minha clínica.",
-    `Nome: ${data.get("nome")}`,
-    `Clínica: ${data.get("clinica")}`,
-    `Cidade: ${data.get("cidade") || "Não informada"}`,
-    `Instagram: ${data.get("instagram") || "Não informado"}`,
-    `Objetivo: ${data.get("objetivo")}`
+    `Nome: ${form.get("nome")}`,
+    `WhatsApp: ${form.get("whatsapp")}`,
+    `E-mail: ${form.get("email") || "Não informado"}`,
+    `Mensagem: ${form.get("mensagem") || "Gostaria de conhecer as soluções."}`
   ].join("\n");
-  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, "_blank", "noopener");
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
 });
